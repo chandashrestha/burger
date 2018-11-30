@@ -16,18 +16,19 @@ $(function() {
         function() {
           console.log("changed devoured to", newDevoured);
           // Reload the page to get the updated list
-          loburgerion.reload();
+          location.reload();
         }
       );
     });
   
-    $(".create-form").on("submit", function(event) {
+    $("#submitBurger").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
       var newburger = {
-        name: $("#ca").val().trim(),
+        burger_name: $("#ca").val().trim(),
       };
+      //console.log(newburger.name);
   
       // Send the POST request.
       $.ajax("/api/burgers", {
@@ -37,7 +38,7 @@ $(function() {
         function() {
           console.log("created new burger");
           // Reload the page to get the updated list
-          loburgerion.reload();
+          location.reload();
         }
       );
     });
